@@ -2,11 +2,12 @@
 
 <!-- NgFor is a built-in template directive,It is easy to iterate over something like an array or an object and create a template for each item. -->
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of products; index as productId">
 
   <h3>
-    <!-- property binding [ ] -->
-    <a [title]="product.name + ' details'">
+    <!-- property binding [ ], The RouterLink directive gives the router control over the anchor element -->
+    
+    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
     
      <!-- Interpolation -->
       {{ product.name }}
