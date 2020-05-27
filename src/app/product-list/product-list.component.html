@@ -1,20 +1,33 @@
-<h2>Available Products </h2>
+<h2>Fitness Products </h2>
+
+<!-- NgFor is a built-in template directive,It is easy to iterate over something like an array or an object and create a template for each item. -->
 
 <div *ngFor="let product of products">
 
   <h3>
+    <!-- property binding [ ] -->
     <a [title]="product.name + ' details'">
+    
+     <!-- Interpolation -->
       {{ product.name }}
     </a>
   </h3>
 
+  <!-- NgIf is a built-in template directive that adds or removes parts of the DOM -->
+
   <p *ngIf="product.description">
     Description: {{ product.description }}
   </p>
+  
 
+<!-- event binding -->
   <button (click)="share()">
     Share
   </button>
+
+  <app-product-alerts
+  [product]="product">
+</app-product-alerts>
 
 </div>
 
